@@ -12,20 +12,16 @@ def get_stores_by_sale():
     stores = branches.loc[branches['Наименование'] != 'Склад']
     return pandas.concat([stores,sales_sort],axis=1).head(10)
 
-print(get_stores_by_sale())
 
 def get_storage_by_sale():
 
     storages = branches.loc[branches['Наименование'] == 'Склад']
     return pandas.concat([storages,sales_sort],axis=1).head(10)
 
-print(get_storage_by_sale())
 
 def get_cities_by_products():
     return pandas.concat([cities,sales_sort]).head(10)
     
-print(get_cities_by_products())
-
 
 # Две нижнее функции не успел сделать
 def get_products_by_storages():
