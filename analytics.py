@@ -5,7 +5,9 @@ cities = pandas.read_csv(r'test_data\t_cities.csv')
 products = pandas.read_csv(r'test_data\t_products.csv')
 sales = pandas.read_csv(r'test_data\t_sales.csv')
 
+
 sales_sort = sales.sort_values('Количество',ascending=False)
+
 
 def get_stores_by_sale():
     
@@ -20,8 +22,9 @@ def get_storage_by_sale():
 
 
 def get_cities_by_products():
-    return pandas.concat([cities,sales_sort]).head(10)
+    return pandas.merge(cities,sales_sort).head(10)
     
+
 
 # Две нижнее функции не успел сделать
 def get_products_by_storages():
