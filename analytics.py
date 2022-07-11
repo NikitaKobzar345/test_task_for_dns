@@ -1,4 +1,3 @@
-import datetime
 import pandas as pandas
 
 branches = pandas.read_csv(r'test_data\t_branches.csv')
@@ -33,5 +32,3 @@ def get_products_by_stores():
 
 def get_max_sale():
     return sales['Период'].max()
-
-print(get_max_sale())
