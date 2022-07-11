@@ -5,27 +5,27 @@ cities = pandas.read_csv(r'test_data\t_cities.csv')
 products = pandas.read_csv(r'test_data\t_products.csv')
 sales = pandas.read_csv(r'test_data\t_sales.csv')
 
+sales_sort = sales.sort_values('Количество',ascending=False)
+
 def get_stores_by_sale():
     
     stores = branches.loc[branches['Наименование'] != 'Склад']
-    concat_data = pandas.concat([stores,sales],axis=1)
+    return pandas.concat([stores,sales_sort],axis=1).head(10)
 
-    return concat_data.sort_values('Количество',ascending=False).dropna().head(10)
-
+print(get_stores_by_sale())
 
 def get_storage_by_sale():
 
     storages = branches.loc[branches['Наименование'] == 'Склад']
-    concat_files = pandas.concat([storages,sales],axis=1)
+    return pandas.concat([storages,sales_sort],axis=1).head(10)
 
-    return concat_files.sort_values('Количество',ascending=False).head(10)
-
+print(get_storage_by_sale())
 
 def get_cities_by_products():
-    sort_sales = sales.sort_values('Количество',ascending=False)
-    conc = pandas.concat([cities,sort_sales])
-    return conc.head(10)
+    return pandas.concat([cities,sales_sort]).head(10)
     
+print(get_cities_by_products())
+
 
 # Две нижнее функции не успел сделать
 def get_products_by_storages():
