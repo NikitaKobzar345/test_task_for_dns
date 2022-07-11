@@ -32,6 +32,6 @@ def get_products_by_stores():
 
 
 def get_max_sale():
-    return sales.max()
+    return sales['Период'].max()
 
 print(get_max_sale())
