@@ -25,7 +25,6 @@ def get_cities_by_products():
     return pandas.merge(cities,sales_sort).head(10)
     
 
-
 # Две нижнее функции не успел сделать
 def get_products_by_storages():
     pass
